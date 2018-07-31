@@ -1,4 +1,5 @@
 # ansible-windows-java
+(work in progress)
 Ansible role to upgrade JRE/JDK to latest version. Tasks in this role will do the following.
 
 1. Log information about existing versions of Java (jre/jdk) under C:\JavaPreviousVersions.txt
