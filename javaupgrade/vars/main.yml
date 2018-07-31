@@ -1,2 +1,8 @@
 ---
 # vars file for javaupgrade
+64_jdk_package:
+86_jdk_package:
+64_jre_package:
+86_jre_package:
+temp_dir:
+path_created:

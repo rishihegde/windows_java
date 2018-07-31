@@ -1,2 +1,6 @@
 ---
 # tasks file for javaupgrade
+- name: test tasks
+  win_shell: whomai
+  register: who
+- debug: var=who
