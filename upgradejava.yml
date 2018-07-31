@@ -1,0 +1,4 @@
+- hosts: windowshosts
+  
+  roles:
+    - role: javaupgrade
