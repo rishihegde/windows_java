@@ -71,5 +71,4 @@ BSD
 
 Author Information
 ------------------
-Rishi Hegde
-rishihegde810@gmail.com
+Rishi Hegde	rishihegde810@gmail.com
