@@ -30,11 +30,13 @@ Example Playbook
 ----------------
 
 *Uninstall all versions of Java and upgrade those versions to the latest*
+	
 	- hosts: servers
   	  roles:
             - role: rishihegde.javaupgrade 
 
 *Use tags to only install specific versions or only uninstall*
+	
 	- hosts: servers
 	  roles:
             - { role: rishihegde.javaupgrade, tags: ['uninstall'] }
