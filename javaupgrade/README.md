@@ -35,9 +35,9 @@ Role Variables
 
 `_32_jre_package_path: C:\temp\jre\jre-8u181-windows-i586.msi`
 
-* used for creates_path. This allows installation of packages without knowing the product_id
+*used for creates_path. This allows installation of packages without knowing the product_id*
 
-	_64jdk: C:\Program Files\Java\jdk
+	-_64jdk: C:\Program Files\Java\jdk
 	_64jre: C:\Program Files\Java\jre
 	_32jdk: C:\Program Files (x86)\Java\jdk
 	_32jre: C:\Program Files (x86)\Java\jre
