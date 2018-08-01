@@ -26,7 +26,7 @@
 # If previously both 32bit and 64bit JDK was installed we have to upgrade both.
 - block:
     - name: stage files for 32bit and 64bit jdk
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jdk' 'C:\temp' -recurse
       register: resuluta
       become: true
       
@@ -55,11 +55,11 @@
 # If previously 32bit jdk and 64bit jre was installed, upgrade them
 - block:
     - name: stage files for 32bit jdk and 64bit jre
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jre' 'C:\temp' -recurse
       register: resultb
       become: true
     
-    - win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
+    - win_shell: Copy-Item -Path '\\your_repository_name\jdk' 'C:\temp' -recurse
       become: true
 
     - name: install 32bit jdk
@@ -85,11 +85,11 @@
 # If previously 64bit jdk and 32bit jre was installed, upgrade them
 - block:
     - name: stage files for 64bit jdk and 32bit jre
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jre' 'C:\temp' -recurse
       register: resultc
       become: true
       
-    - win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
+    - win_shell: Copy-Item -Path '\\your_repository_name\jdk' 'C:\temp' -recurse
       become: true
 
     - name: install 64bit jdk
@@ -116,7 +116,7 @@
 # If previously 64bit jre and 32bit jre was installed, upgrade both jre
 - block:
     - name: stage files for 64bit jre and 32bit jre
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jre' 'C:\temp' -recurse
       register: resultd
       become: true
     - name: install 64bit jre
@@ -147,7 +147,7 @@
 # If previously only 64bit jdk was installed, upgrade only that
 - block:
     - name: stage files for 64bit jdk
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jdk' 'C:\temp' -recurse
       register: resulte
       become: true
 
@@ -172,7 +172,7 @@
 # If previously only 32bit jdk was installed, upgrade only that
 - block:
     - name: stage files for 32bit jdk
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jdk' 'C:\temp' -recurse
       register: resultf
       become: true
 
@@ -198,7 +198,7 @@
 # If only 64bit jre was installed, upgrade that
 - block:
     - name: stage files for 64bit jre
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jre' 'C:\temp' -recurse
       register: resultg
       become: true
 
@@ -224,7 +224,7 @@
 # If only 32bit jre was previously installed, upgrade that    
 - block:
     - name: stage files for 32bit jre
-      win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
+      win_shell: Copy-Item -Path '\\your_repository_name\jre' 'C:\temp' -recurse
       register: resulth
       become: true
 
