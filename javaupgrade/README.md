@@ -28,14 +28,20 @@ Role Variables
 
 #### complete path of packages on the target machines after they have been copied
 `_64_jdk_package_path: C:\temp\jdk\jdk8_181_64.exe
+
 _32_jdk_package_path: C:\temp\jdk\jdk8_181_32.exe
+
 _64_jre_package_path: C:\temp\jre\jre-8u181-windows-x64.msi
+
 _32_jre_package_path: C:\temp\jre\jre-8u181-windows-i586.msi`
 
 #### used for creates_path. This allows installation of packages without knowing the product_id
 `_64jdk: C:\Program Files\Java\jdk
+
 _64jre: C:\Program Files\Java\jre
+
 _32jdk: C:\Program Files (x86)\Java\jdk
+
 _32jre: C:\Program Files (x86)\Java\jre`
 
 
