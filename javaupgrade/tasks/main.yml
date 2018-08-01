@@ -1,3 +1,4 @@
+# Log exising versions of Java and uninstall them one by one looping through uninstall strings found from registry
 - name: get all installed Java version and uninstall them using uninstall strings
   win_shell: |
     $Uninst64 = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Get-ItemProperty | Where-Object {$_.DisplayName -like '*Java *' -or $_.DisplayName -like '*J2SE*' -or $_.DisplayName -like '*Java(TM) *' -and $_.DisplayName -ne 'Java Auto Updater' -and ($_.Publisher -like '*Oracle*' -or $_.Publisher -like '*Sun*') -and $_.Publisher -ne '' } | Select-Object uninstallstring,InstallLocation,DisplayName,DisplayVersion
@@ -10,16 +11,19 @@
   register: sh_op
   tags:
     - uninstall
-- debug: var=sh_op.rc
+
+#- debug: var=sh_op.rc
 
 - win_shell: type C:\JavaPreviousVersion.txt
   register: ty
 
-#    - debug: var=ty
+#- debug: var=ty
   
-- debug:
-    msg: 64bit jre
-  when: _64jre in ty.stdout
+#- debug:
+#    msg: 64bit jre
+#  when: _64jre in ty.stdout
+
+# If previously both 32bit and 64bit JDK was installed we have to upgrade both.
 - block:
     - name: stage files for 32bit and 64bit jdk
       win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
@@ -44,7 +48,11 @@
   when:
     - _64jdk in ty.stdout
     - _32jdk in ty.stdout
-    
+
+  tags:
+    - jdk_both
+
+# If previously 32bit jdk and 64bit jre was installed, upgrade them
 - block:
     - name: stage files for 32bit jdk and 64bit jre
       win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
@@ -74,6 +82,7 @@
     - _64jre in ty.stdout
     - resulta is skipped
     
+# If previously 64bit jdk and 32bit jre was installed, upgrade them
 - block:
     - name: stage files for 64bit jdk and 32bit jre
       win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
@@ -103,7 +112,8 @@
     - _32jre in ty.stdout
     - resuluta is skipped
     - resultb is skipped
-    
+
+# If previously 64bit jre and 32bit jre was installed, upgrade both jre
 - block:
     - name: stage files for 64bit jre and 32bit jre
       win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
@@ -130,7 +140,11 @@
     - resuluta is skipped
     - resultb is skipped
     - resultc is skipped
-    
+
+  tags:
+    - jre_both
+
+# If previously only 64bit jdk was installed, upgrade only that
 - block:
     - name: stage files for 64bit jdk
       win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
@@ -151,7 +165,11 @@
     - resultb is skipped
     - resultc is skipped
     - resultd is skipped
-    
+
+  tags:
+    - 64_jdk
+
+# If previously only 32bit jdk was installed, upgrade only that
 - block:
     - name: stage files for 32bit jdk
       win_shell: Copy-Item -Path '\\servername\d$\temp\jdk' 'C:\temp' -recurse
@@ -173,6 +191,11 @@
     - resultc is skipped
     - resultd is skipped
     - resulte is skipped
+  
+  tags:
+    - 32_jdk
+
+# If only 64bit jre was installed, upgrade that
 - block:
     - name: stage files for 64bit jre
       win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
@@ -195,7 +218,10 @@
     - resultd is skipped
     - resulte is skipped
     - resultf is skipped
-    
+  tags:
+    - 64_jre
+
+# If only 32bit jre was previously installed, upgrade that    
 - block:
     - name: stage files for 32bit jre
       win_shell: Copy-Item -Path '\\servername\d$\temp\jre' 'C:\temp' -recurse
@@ -218,3 +244,5 @@
     - resulte is skipped
     - resultf is skipped
     - resultg is skipped
+  tags:
+    - 32_jre
