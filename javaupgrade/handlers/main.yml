@@ -1,2 +1,19 @@
 ---
 # handlers file for javaupgrade
+- name: cleanup_jdk_package
+  win_file:
+    path: C:\temp\jdk
+    state: absent
+
+- name: cleanup_jre_package
+  win_file:
+    path: C:\temp\jre
+    state: absent
+
+- name: cleanup_both_package
+  win_file:
+    path: "{{item}}"
+    state: absent
+  with_items:
+    - C:\temp\jdk
+    - C:\temp\jre

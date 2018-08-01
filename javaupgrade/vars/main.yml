@@ -1,8 +1,13 @@
 ---
 # vars file for javaupgrade
-64_jdk_package:
-86_jdk_package:
-64_jre_package:
-86_jre_package:
-temp_dir:
-path_created:
+jdksrc:
+jresrc: 
+stage: C:\temp
+_64_jdk_package_path: C:\temp\jdk\jdk8_181_64.exe
+_32_jdk_package_path: C:\temp\jdk\jdk8_181_32.exe
+_64_jre_package_path: C:\temp\jre\jre-8u181-windows-x64.msi
+_32_jre_package_path: C:\temp\jre\jre-8u181-windows-i586.msi
+_64jdk: C:\Program Files\Java\jdk
+_64jre: C:\Program Files\Java\jre
+_32jdk: C:\Program Files (x86)\Java\jdk
+_32jre: C:\Program Files (x86)\Java\jre
