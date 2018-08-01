@@ -16,13 +16,19 @@ Requirements
 This role assumes that there is a central repository where the downloaded packages of the latest versions are present. For example:
 
 \\your_repository_name\jdk\
+  
   -- jdk8_181_64.exe
+
   |
+
   -- jdk8_181_32.exe
 
 \\your_repository_name\jre\
+
   -- jre-8u181-windows-x64.msi
+
   |
+
   -- jre-8u181-windows-i586.msi
 
 Role Variables
