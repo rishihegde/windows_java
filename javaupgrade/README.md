@@ -13,8 +13,17 @@ Ansible role to upgrade JRE/JDK to latest version. Tasks in this role will do th
 
 Requirements
 ------------
+This role assumes that there is a central repository where the downloaded packages of the latest versions are present. For example:
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+\\your_repository_name\jdk\
+  -- jdk8_181_64.exe
+  |
+  -- jdk8_181_32.exe
+
+\\your_repository_name\jre\
+  -- jre-8u181-windows-x64.msi
+  |
+  -- jre-8u181-windows-i586.msi
 
 Role Variables
 --------------
