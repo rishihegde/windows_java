@@ -35,8 +35,10 @@ galaxy_info:
   platforms:
     - name: Windows
       versions:
-        - 2008R2
+        - all
+        - 2008
         - 2012R2
+        - 2016
 
   galaxy_tags:
     - windows
