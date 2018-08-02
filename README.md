@@ -1,4 +1,4 @@
-# Ansible Role: windows.java
+# Ansible Role: windows_java
 
 Ansible role to upgrade JRE/JDK to latest version. Tasks in this role will do the following.
 
@@ -56,19 +56,19 @@ Example Playbook
         ---
         - hosts: servers
           roles:
-            - role: rishihegde.windows.java
+            - role: rishihegde.windows_java
 
 *Use tags to only install specific versions or only uninstall*
 
         ---
         - hosts: servers
           roles:
-            - { role: rishihegde.windows.java, tags: ['uninstall'] }
+            - { role: rishihegde.windows_java, tags: ['uninstall'] }
 
         ---
         - hosts: servers
           roles:
-            - { role: rishihegde.windows.java, tags: ['uninstall','64_jdk'] }
+            - { role: rishihegde.windows_java, tags: ['uninstall','64_jdk'] }
 
 
 *Available tags*
