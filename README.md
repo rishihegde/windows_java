@@ -56,19 +56,19 @@ Example Playbook
         ---
         - hosts: servers
           roles:
-            - role: rishihegde.windows_java
+            - role: rishihegde.windows.java
 
 *Use tags to only install specific versions or only uninstall*
 
         ---
         - hosts: servers
           roles:
-            - { role: rishihegde.windows_java, tags: ['uninstall'] }
+            - { role: rishihegde.windows.java, tags: ['uninstall'] }
 
         ---
         - hosts: servers
           roles:
-            - { role: rishihegde.windows_java, tags: ['uninstall','64_jdk'] }
+            - { role: rishihegde.windows.java, tags: ['uninstall','64_jdk'] }
 
 
 *Available tags*
