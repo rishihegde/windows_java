@@ -19,7 +19,7 @@ This role assumes that there is a central repository where the downloaded packag
 
 `\\your_repository_name\jre\jre-8u181-windows-x64.msi` and `\\your_repository_name\jre\jre-8u181-windows-i586.msi`
 
-The tasks copy the jdk/jre folder and stage them on the target machines C:\temp directory
+Make sure to replace all occurences of "your_repository_name" with the server name or ip address of the windows share inside the tasks/main.yml
 
 Role Variables
 --------------
