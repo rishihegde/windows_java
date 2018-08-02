@@ -64,6 +64,18 @@ Example Playbook
 	  roles:
             - { role: rishihegde.javaupgrade, tags: ['uninstall'] }
 
+        - hosts: servers
+          roles:
+            - { role: rishihegde.javaupgrade, tags: ['uninstall','64_jdk'] }
+
+*Available tags*
+1. uninstall - only uninstalls all versions of jre/jdk that currently exists on the target machine
+2. jdk_both - only installs 64bit and 32bit version of JDK
+3. 64_jdk - only installs 64bit JDK
+4. 32_jdk - only installs 32bit JDK
+5. 64_jre - only installs 64bit JRE
+6. 32_jre - only installs 32bit JRE
+
 License
 -------
 
