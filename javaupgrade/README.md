@@ -64,7 +64,7 @@ Example Playbook
 	  roles:
             - { role: rishihegde.javaupgrade, tags: ['uninstall'] }
 
-        - hosts: servers
+	- hosts: servers
           roles:
             - { role: rishihegde.javaupgrade, tags: ['uninstall','64_jdk'] }
 
