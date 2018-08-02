@@ -1,4 +1,4 @@
-javaupgrade
+windows-java
 =========
 
 Ansible role to upgrade JRE/JDK to latest version. Tasks in this role will do the following.
