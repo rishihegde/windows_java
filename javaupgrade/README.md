@@ -54,22 +54,23 @@ Example Playbook
 
 *Uninstall all versions of Java and upgrade those versions to the latest*
 
-	---	
-	- hosts: servers
-  	  roles:
-            - role: rishihegde.javaupgrade 
+        ---
+        - hosts: servers
+          roles:
+            - role: rishihegde.javaupgrade
 
 *Use tags to only install specific versions or only uninstall*
-	
-	---
-	- hosts: servers
-	  roles:
+
+        ---
+        - hosts: servers
+          roles:
             - { role: rishihegde.javaupgrade, tags: ['uninstall'] }
 
-	---
-	- hosts: servers
+        ---
+        - hosts: servers
           roles:
             - { role: rishihegde.javaupgrade, tags: ['uninstall','64_jdk'] }
+
 
 *Available tags*
 1. uninstall - only uninstalls all versions of jre/jdk that currently exists on the target machine
